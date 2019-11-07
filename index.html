@@ -17,20 +17,22 @@
   <header>
     <nav>
       <a href="#">Home</a>
-      <a href="#">About</a>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">About</a>
       <a href="https://hdell.github.io/portfolio-website/">Portfolio</a>
-      <a href="#">Contact</a>
+      <a href="#contact-form">Contact</a>
     </nav>
     <div class="header-grand-parent">
       <div class="header-parent">
         <div class="header-welcome">
-          <img class="hdimg" src="images/Handell_Headshot.jpg"/>
-          <h1>Handell Desulme - Web Dev</h1>
-          <h4>Technology is my jam!</h4>
+          <img class="hd-img" src="images/Handell_Headshot.jpg"/>
+          <div class="welcome-text">
+            <h1>Handell Desulme</h1>
+            <h4>Software Engineer</h4>
+          </div>
         </div>
         <div class="header-cta">
-          <p>Occasionally I have time to work on side projects. If you're interested, let me know by signing up on this website.</p>
-          <button>Let's Team Up</button>
+          <p>Outside of Lambda School, I have a few side projects that I'm working on. If you're interested, let me know by reaching out to me.</p>
+          <button><a href="https://github.com/HDell/">Let's Team Up</a></button>
         </div>
       </div>
     </div>
@@ -43,11 +45,10 @@
     <div class="skills">
       <h3>Stuff I'm Good At:</h3>
       <ul>
-        <li>Disc Golf</li>
-        <li>Coding up UI</li>
-        <li>Playing lots of video games</li>
-        <li>Using bootstrap grid</li>
-        <li>Taking long naps</li>
+        <li>Thinking</li>
+        <li>Outside</li>
+        <li>The</li>
+        <p>Box</p>
       </ul>
     </div>
   </section>
@@ -81,16 +82,21 @@
     </table> <!-- Learn Tables -->
   </section>
   <section class="contact">
-    <form>
-      <input type="text" name="name" id="name" value="Name">
-      <input type="email" name="email" id="email" value="Email">
-      <input type="text" name="message" id="message" value="Message">
-      <input type="submit" value="Send Message">
+    <div class="contact-text">
+      <h3>Contact</h3>
+      <p>If you would like to get in touch, please feel free to reach out to me.</p>
+    </div>
+    <form id="contact-form">
+      <div class="top-row">
+        <input type="text" name="name" id="name" placeholder="Name">
+        <input type="email" name="email" id="email" placeholder="Email">
+      </div>
+      <textarea type="text" name="message" id="message" placeholder="Message" rows="5" cols="50" form="contact-form"></textarea>
+      <input type="submit" id="submit" value="Send Message">
     </form>
-    <!-- Learn How to Make Full Contact Form -->
   </section>
   <footer>
-    <p>Copyright Awesomeness 2019</p>
+    <p>Copyright HD 2019</p>
   </footer>
 </body>
 </html>

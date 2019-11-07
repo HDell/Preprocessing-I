@@ -59,9 +59,47 @@ html, body {
 
 // CSS Styles Below
 
+//variables
+@main-background: #cdd3a4;
+@main-font: arial, sans-serif;
+
+//mixins
+.margins-initial() {
+	margin: 2% 3%;
+}
+
+.margins-secondary() {
+	margin: 0% 3%;
+}
+
+.margins-bottom() {
+	margin-bottom: 1%;
+}
+
+.bottom-border() {
+	padding-bottom: 1%;
+	border-bottom: 1px solid black;
+}
+
+.media-bottom-border() {
+	@media(max-width: 500px) {
+		.bottom-border();
+		margin-bottom: 4%;
+	}
+}
+
+//main selectors
 html {
 	font-size: 62.5%;
-	font-family: arial, sans-serif;
+	font-family: @main-font;
+
+	@media(max-width: 500px) {
+
+	}
+
+	@media(max-width: 500px) {
+		//background-color: @main-background;
+	}
 }
 
 h1 {
@@ -82,35 +120,45 @@ h4 {
 
 p, th, td, li, a {
 	font-size: 1.6rem;
+	@media(max-width: 500px) {
+		font-size: 1.8rem;
+	}
 }
-
-th {
-	font-size: bold;
-}
-
-//variables
-@main-background: #cdd3a4;
-
-//Mixins
-.margins-initial() {
-	margin: 2% 3%;
-}
-
-.margins-secondary() {
-	margin: 0% 3%;
-}
-
 
 //header
 nav {
 	display: flex;
 	justify-content: flex-end;
 
+	@media(max-width: 500px) {
+		flex-direction: column;
+		align-items: center;
+	}
+
 	a {
 		margin: 2% 3% 2% 0;
 		margin-left: 20px;
 		text-decoration: none;
 		color: black;
+
+		@media(max-width: 500px) {
+			text-align: center;
+			border-bottom: 1px solid black;
+			width: 100%;
+			padding: 3% 0;
+		}
+	}
+
+	a:hover {
+		color: @main-background;
+
+		@media(max-width: 500px) {
+			color: @main-background;
+		}
+	}
+
+	@media(max-width: 500px) {
+
 	}
 }
 
@@ -118,29 +166,89 @@ nav {
 	background-color: @main-background;
 	.margins-secondary();
 
+	@media(max-width: 500px) {
+		background-color: white;
+	}
+
 	.header-parent {
 		padding: 3%;
 
-		.hdimg {
-			max-width: 20%;
-			height: auto;
+		@media(max-width: 500px) {
+			padding: 0%;
+		}
+
+		.header-welcome {
+
+			.hd-img {
+				max-width: 20%;
+				height: auto;
+				.margins-bottom();
+			}
+
+			h1 {
+				.margins-bottom();
+			}
+
+			.bottom-border();
+			.margins-bottom();
+
+			@media(max-width: 500px) {
+				display: flex;
+				justify-content: space-between;
+				.media-bottom-border();
+			}
+		}
+
+		.header-cta {
+			p, button {
+				.margins-bottom();
+			}
+
+			button {
+				background-color: darkgray;
+				padding: 0.5%;
+				@media(max-width: 500px) {
+					margin: auto;
+					display: block;
+					.margins-bottom();
+				}
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+			}
+
+			.media-bottom-border();
+
 		}
 
 	}
 
 }
 
-
 //main content
 .main-content {
 	display: flex;
 	.margins-initial();
+
+	@media(max-width: 500px) {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 
 	.intro {
 		width: 60%;
 
 		p {
 			margin-top: 2%;
+		}
+
+		@media(max-width: 500px) {
+			width: 100%;
+			.media-bottom-border();
+			//here
 		}
 	}
 
@@ -153,36 +261,112 @@ nav {
 			padding: 3%;
 			border: 1px solid gray;
 		}
+		p {
+			padding: 3%;
+		}
+		@media(max-width: 500px) {
+			width: 100%;
+		}
 	}
+
+	.media-bottom-border();
 
 }
 
 //work-history
 .work-history {
 	.margins-secondary();
+
+	h3 {
+		.bottom-border();
+		@media(max-width: 500px) {
+			text-align: center;
+		}
+	}
+
+	tr:nth-child(even) {
+		background-color: @main-background;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	td, th {
+		padding: 15px 30px;
+		margin: 0 25%;
+		text-align: left;
+		border-bottom: 1px solid gray;
+	}
+
+	@media(max-width: 500px) {
+		margin-bottom: 5%;
+	}
 }
 
-tr:nth-child(even) {
-	background-color: #dddddd;
-}
-
-table {
-	width: 100%;
-}
-
-td, th {
-	padding: 15px 30px;
-	margin: 0 25%;
-	text-align: left;
-}
 
 //contact
 .contact {
 	.margins-initial();
+
+	h3, p {
+		.margins-bottom();
+		@media(max-width: 500px) {
+			text-align: center;
+			margin-bottom: 3%;
+		}
+	}
+
+	form {
+
+		.top-row {
+
+			display: flex;
+			justify-content: space-between;
+
+			@media(max-width: 500px) {
+				flex-direction: column;
+			}
+
+			#name, #email {
+				width: 50%;
+				.margins-bottom();
+				@media(max-width: 500px) {
+					font-size: 3rem;
+					width: 100%;
+				}
+			}
+
+		}
+
+		#message {
+			width: 100%;
+			.margins-bottom();
+			height: 10rem;
+			@media(max-width: 500px) {
+				font-size: 3rem;
+				height: 20rem;
+			}
+		}
+
+		#submit {
+			margin: auto;
+			display: block;
+			@media(max-width: 500px) {
+				font-size: 10rem;
+				margin-bottom: 5%;
+			}
+		}
+
+	}
 }
 
 //footer
 footer {
 	.margins-secondary();
+	background-color: darkgray;
+	padding: 2%;
+	text-align: center;
+	color: white;
 }
 
